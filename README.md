@@ -19,8 +19,8 @@ Basic usage:
 var EventEmitter = require('eemitter');
 var ee = new EventEmitter();
 
-ee.on('message', function (event) {
-    console.log(event.data);
+ee.on('message', function (msg) {
+    console.log(msg);
 });
 
 ee.emit('message', 'hello, world!');
@@ -40,12 +40,12 @@ Person.prototype.constructor = Person;
 // you can also do Person.prototype = Object.create(EventEmitter.prototype);
 
 Person.prototype.sayName = function () {
-    this.emit('say', this.name);
+    this.emit('talk', this.name);
 };
 
 var cameron = new Person('Cameron');
-cameron.on('say', function (event) {
-    console.log(event.data);
+cameron.on('talk', function (msg) {
+    console.log(msg);
 })
 cameron.sayName();
 // Cameron

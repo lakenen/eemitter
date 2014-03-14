@@ -38,15 +38,18 @@ test('emit() should only call the event handlers registered for the event when c
 test('emit() should call the event handler with an event object for event when called with an event object', function(t) {
     var ee = new EventEmitter(),
         data = {
-            one: 'two',
+            one: '1',
+            two: { a: '2' },
             three: ['four', 'five']
         };
-    t.plan(2);
-    ee.on('myevent', function (event) {
+    t.plan(4);
+    ee.on('myevent', function (one, two, three) {
         t.pass('handler was called');
-        t.same(event.data, data);
+        t.same(one, data.one);
+        t.same(two, data.two);
+        t.same(three, data.three);
     });
-    ee.emit('myevent', data);
+    ee.emit('myevent', data.one, data.two, data.three);
 });
 
 test('emit() should call the event handler even after another event handler for the same type removes itself', function(t) {

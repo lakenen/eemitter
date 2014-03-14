@@ -1,6 +1,6 @@
 {
   "name": "eemitter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Simple custom event emitter",
   "main": "index.js",
   "repository": {
@@ -12,7 +12,7 @@
     "email": "cameron.lakenen@gmail.com"
   },
   "scripts": {
-    "test": "node test/eemitter.js"
+    "test": "node test/test.js"
   },
   "license": {
     "type": "MIT",

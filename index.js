@@ -31,8 +31,8 @@ EventEmitter.prototype.removeEventListener = function (type, handler) {
 };
 EventEmitter.prototype.off = EventEmitter.prototype.removeEventListener;
 
-EventEmitter.prototype.dispatchEvent = function (type, data) {
-    var handlers, i, len;
+EventEmitter.prototype.dispatchEvent = function (type) {
+    var handlers, i, len, args;
     if (typeof this._eventHandlers === 'undefined') {
         return;
     }
@@ -41,9 +41,10 @@ EventEmitter.prototype.dispatchEvent = function (type, data) {
         // if an event handler removes itself, it would alter the
         // array as we loop, so create a copy
         handlers = handlers.concat();
+        args = [].slice.call(arguments, 1);
         for (i = 0, len = handlers.length; i < len; ++i) {
             if (typeof handlers[i] === 'function') {
-                handlers[i].call(this, { type: type, data: data });
+                handlers[i].apply(this, args);
             }
         }
     }
