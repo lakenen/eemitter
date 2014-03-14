@@ -1,0 +1,27 @@
+{
+  "name": "eemitter",
+  "version": "0.0.0",
+  "description": "Simple custom event emitter",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lakenen/eemitter.git"
+  },
+  "author": {
+    "name": "Cameron Lakenen",
+    "email": "cameron.lakenen@gmail.com"
+  },
+  "scripts": {
+    "test": "node test/eemitter.js"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.github.com/lakenen/eemitter/master/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/lakenen/eemitter/issues"
+  },
+  "devDependencies": {
+    "tape": "^2.10.2"
+  }
+}
