@@ -2,6 +2,8 @@
 
 Simple custom event emitter.
 
+[![Build Status](https://travis-ci.org/lakenen/eemitter.png?branch=master)](https://travis-ci.org/lakenen/eemitter)
+
 
 ## install
 
