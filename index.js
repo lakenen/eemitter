@@ -51,4 +51,11 @@ EventEmitter.prototype.dispatchEvent = function (type) {
 };
 EventEmitter.prototype.emit = EventEmitter.prototype.dispatchEvent;
 
+EventEmitter.prototype.one = function (type, handler) {
+    this.on(type, function _handler() {
+        handler.apply(this, arguments);
+        this.off(type, _handler);
+    });
+};
+
 module.exports = EventEmitter;

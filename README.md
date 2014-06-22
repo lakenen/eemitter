@@ -52,6 +52,15 @@ cameron.sayName();
 
 ```
 
+Bind an event handler for one message:
+```js
+var ee = new EventEmitter();
+ee.one('myevent', function () {
+    console.log('should only be called once')
+});
+ee.emit('myevent');
+ee.emit('myevent'); // nothing
+```
 
 ## License
 

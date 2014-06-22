@@ -95,3 +95,13 @@ test('off() should remove all event handlers of a given type when called for tha
     ee.emit('myevent');
     t.pass('yay');
 });
+
+test('one() should register a handler that will unbind itself after the event is fired once', function(t) {
+    var ee = new EventEmitter();
+    t.plan(1);
+    ee.one('myevent', function () {
+        t.pass('handler1 was called');
+    });
+    ee.emit('myevent');
+    ee.emit('myevent');
+});
