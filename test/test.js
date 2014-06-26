@@ -105,3 +105,18 @@ test('one() should register a handler that will unbind itself after the event is
     ee.emit('myevent');
     ee.emit('myevent');
 });
+
+test('off() should remove all event handlers when called with no type', function(t) {
+    var ee = new EventEmitter();
+    var handler = function () {
+        t.fail('handler was called');
+    };
+
+    t.plan(1);
+    ee.on('myevent1', handler);
+    ee.on('myevent2', handler);
+    ee.off();
+    ee.emit('myevent1');
+    ee.emit('myevent2');
+    t.pass('yay');
+});

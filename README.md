@@ -62,6 +62,20 @@ ee.emit('myevent');
 ee.emit('myevent'); // nothing
 ```
 
+Remove all handlers:
+```js
+var ee = new EventEmitter();
+ee.on('myevent1', function () {
+    console.log('should not be called')
+});
+ee.on('myevent2', function () {
+    console.log('should not be called')
+});
+ee.off();
+ee.emit('myevent1'); // nothing
+ee.emit('myevent2'); // nothing
+```
+
 ## License
 
 ([The MIT License](LICENSE))

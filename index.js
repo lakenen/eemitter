@@ -15,6 +15,10 @@ EventEmitter.prototype.removeEventListener = function (type, handler) {
     if (typeof this._eventHandlers === 'undefined') {
         return;
     }
+    if (typeof type === 'undefined') {
+        this._eventHandlers = {};
+        return;
+    }
     handlers = this._eventHandlers[type];
     if (Array.isArray(handlers)) {
         if (typeof handler === 'undefined') {
